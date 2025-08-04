@@ -1,5 +1,26 @@
+# Compiled object files
+*.o
+
+# Default executable
+a.out
+
+# Core dumps
+core
+
+# Backup files (from editors)
+*~
+*.swp
+*.swo
+
+# VS Code settings
+.vscode/
+
+# CTags
+tags
+
+# Mac-specific 
+.DS_Store
+
+# Other
 .env
-
-.vscode
-
 *.log
