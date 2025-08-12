@@ -1,154 +1,114 @@
+// SIMPLE DOUBLY LINKED LIST - Only 2 Insert Operations
+// Each node has: data, prev pointer, next pointer
+
 #include <stdio.h>
 #include <stdlib.h>
 
 struct Node {
-    int data;
-    struct Node *prev;
-    struct Node *next;
+    int data;           // stores the number
+    struct Node *prev;  // points to previous node
+    struct Node *next;  // points to next node
 };
 
-struct Node* head = NULL;
+struct Node* head = NULL;  // first node of list
 
+// INSERT AT BEGINNING
 void insert_beginning() {
-    int data;
-    printf("Enter data: ");
-    scanf("%d", &data);
+    int num;
+    printf("Enter number: ");
+    scanf("%d", &num);
     
+    // Step 1: Create new node
     struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
-    new_node->data = data;
-    new_node->prev = NULL;
-    new_node->next = head;
+    new_node->data = num;
+    new_node->prev = NULL;  // no previous node (it's first)
+    new_node->next = head;  // point to current first node
     
+    // Step 2: Update old first node
     if (head != NULL)
-        head->prev = new_node;
+        head->prev = new_node;  // old first node points back to new node
+    
+    // Step 3: Make new node the first
     head = new_node;
-    printf("Inserted %d at beginning\n", data);
+    
+    printf("Added %d at beginning\n", num);
 }
 
+// INSERT AT END
 void insert_end() {
-    int data;
-    printf("Enter data: ");
-    scanf("%d", &data);
+    int num;
+    printf("Enter number: ");
+    scanf("%d", &num);
     
+    // Step 1: Create new node
     struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
-    new_node->data = data;
-    new_node->next = NULL;
+    new_node->data = num;
+    new_node->next = NULL;  // no next node (it's last)
     
+    // Step 2: If list is empty, make it first node
     if (head == NULL) {
         new_node->prev = NULL;
         head = new_node;
-    } else {
-        struct Node* temp = head;
-        while (temp->next != NULL)
-            temp = temp->next;
-        temp->next = new_node;
-        new_node->prev = temp;
+        printf("Added %d (first node)\n", num);
+        return;
     }
-    printf("Inserted %d at end\n", data);
+    
+    // Step 3: Find last node
+    struct Node* last = head;
+    while (last->next != NULL)
+        last = last->next;
+    
+    // Step 4: Connect new node at end
+    last->next = new_node;
+    new_node->prev = last;
+    
+    printf("Added %d at end\n", num);
 }
 
-void display_forward() {
+// DISPLAY LIST
+void show_list() {
     if (head == NULL) {
         printf("List is empty\n");
         return;
     }
     
     struct Node* temp = head;
-    printf("Forward: ");
+    printf("List: ");
     while (temp != NULL) {
         printf("%d ", temp->data);
         temp = temp->next;
     }
     printf("\n");
-}
-
-void display_backward() {
-    if (head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-    
-    struct Node* temp = head;
-    while (temp->next != NULL)
-        temp = temp->next;
-    
-    printf("Backward: ");
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->prev;
-    }
-    printf("\n");
-}
-
-void delete_node() {
-    int data;
-    printf("Enter data to delete: ");
-    scanf("%d", &data);
-    
-    if (head == NULL) {
-        printf("List is empty\n");
-        return;
-    }
-    
-    struct Node* temp = head;
-    while (temp != NULL && temp->data != data) {
-        temp = temp->next;
-    }
-    
-    if (temp == NULL) {
-        printf("Data %d not found\n", data);
-        return;
-    }
-    
-    if (temp == head) {
-        head = temp->next;
-        if (head != NULL)
-            head->prev = NULL;
-    } else {
-        temp->prev->next = temp->next;
-        if (temp->next != NULL)
-            temp->next->prev = temp->prev;
-    }
-    
-    free(temp);
-    printf("Deleted %d\n", data);
 }
 
 int main() {
     int choice;
     
+    printf("=== SIMPLE DOUBLY LINKED LIST ===\n");
+    
     while (1) {
-        printf("\n--- Doubly Linked List ---\n");
-        printf("1. Insert at beginning\n");
+        printf("\n1. Insert at beginning\n");
         printf("2. Insert at end\n");
-        printf("3. Display forward\n");
-        printf("4. Display backward\n");
-        printf("5. Delete node\n");
-        printf("6. Exit\n");
-        printf("Enter choice: ");
+        printf("3. Show list\n");
+        printf("4. Exit\n");
+        printf("Choice: ");
         scanf("%d", &choice);
         
-        switch (choice) {
-            case 1:
-                insert_beginning();
-                break;
-            case 2:
-                insert_end();
-                break;
-            case 3:
-                display_forward();
-                break;
-            case 4:
-                display_backward();
-                break;
-            case 5:
-                delete_node();
-                break;
-            case 6:
-                printf("Exiting...\n");
-                exit(0);
-            default:
-                printf("Invalid choice!\n");
+        if (choice == 1) {
+            insert_beginning();
+        }
+        else if (choice == 2) {
+            insert_end();
+        }
+        else if (choice == 3) {
+            show_list();
+        }
+        else if (choice == 4) {
+            printf("Bye!\n");
+            break;
+        }
+        else {
+            printf("Invalid choice!\n");
         }
     }
     
