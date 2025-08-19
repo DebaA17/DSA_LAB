@@ -17,5 +17,5 @@ This repository contains my Data Structures lab assignments written in C.All pro
 ## 🧪 How to Compile & Run
 
 ```bash
-gcc filename.c -o filename
-./filename
+gcc filename.c 
+./a.out filename.c(Unix systems)
