@@ -6,7 +6,7 @@ This repository contains my Data Structures lab assignments written in C.All pro
 
 ## 🛠 Tools Used
 
-- **Operating System**: Linux (Kali / Ubuntu)
+- **Operating System**: Linux (Parrot Security / Ubuntu)
 - **Editors**: Neovim, VS Code
 - **Compiler**: GCC
 - **Memory Debugging**: Valgrind
