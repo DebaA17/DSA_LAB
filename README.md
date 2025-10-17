@@ -19,3 +19,12 @@ This repository contains my Data Structures lab assignments written in C.All pro
 ```bash
 gcc filename.c 
 ./a.out filename.c(Unix systems)
+```
+
+---
+
+## 📄 License
+
+This repository is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
+
+See the [LICENSE](./LICENSE) file for details, or read the full legal code at [https://creativecommons.org/licenses/by-nc/4.0/legalcode](https://creativecommons.org/licenses/by-nc/4.0/legalcode).
