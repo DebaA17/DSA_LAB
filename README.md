@@ -25,6 +25,6 @@ gcc filename.c
 
 ## 📄 License
 
-This repository is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license.
+This repository is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.
 
-See the [LICENSE](./LICENSE) file for details, or read the full legal code at [https://creativecommons.org/licenses/by-nc/4.0/legalcode](https://creativecommons.org/licenses/by-nc/4.0/legalcode).
+You are free to share and adapt the material for any purpose, even commercially, as long as you provide appropriate credit. See the [LICENSE](./LICENSE) file for details, or read the full legal code at [https://creativecommons.org/licenses/by/4.0/legalcode](https://creativecommons.org/licenses/by/4.0/legalcode).
